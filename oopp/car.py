@@ -30,7 +30,10 @@ class Car():
 
     def increment_odometer(self, mileage):
         ''' a method to increment the odometer reading by a certain amount of mileage '''
-        self.odometer_reading += mileage
+        if mileage > 0:
+            self.odometer_reading += mileage
+        else:
+            print('You can not decrease the odometer reading.')
 
 
 if __name__ == '__main__':
@@ -51,4 +54,6 @@ if __name__ == '__main__':
     my_used_car = Car('Toyota', 'ac3', 2019)
     my_used_car.increment_odometer(2389)
     print(my_used_car.get_descriptive_name())
+    my_used_car.read_odometer()
+    my_used_car.increment_odometer(-5)
     my_used_car.read_odometer()
