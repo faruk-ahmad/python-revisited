@@ -1,3 +1,5 @@
+''' A class that can be used to represent a Car '''
+
 class Car():
     ''' a simple class to represent a Car '''
     
