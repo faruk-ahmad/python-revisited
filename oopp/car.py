@@ -22,7 +22,15 @@ class Car():
 
     def update_odometer(self, mileage):
         ''' a method to update the odometer_reading attribute value '''
-        self.odometer_reading = mileage
+        if mileage >= self.odometer_reading:
+            self.odometer_reading = mileage
+        else:
+            print(f'You can not roll back to an odometer reading.')
+
+
+    def increment_odometer(self, mileage):
+        ''' a method to increment the odometer reading by a certain amount of mileage '''
+        self.odometer_reading += mileage
 
 
 if __name__ == '__main__':
@@ -36,5 +44,11 @@ if __name__ == '__main__':
     my_car.read_odometer()
 
     #modify the attribute value using a method
-    my_car.update_odometer(100)
+    my_car.update_odometer(10)
     my_car.read_odometer()
+
+    #incrementing attributes value by a method
+    my_used_car = Car('Toyota', 'ac3', 2019)
+    my_used_car.increment_odometer(2389)
+    print(my_used_car.get_descriptive_name())
+    my_used_car.read_odometer()
