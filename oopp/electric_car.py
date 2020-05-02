@@ -40,9 +40,17 @@ class ElectricCar(Car):
     ''' Represents an electric car '''
 
     def __init__(self, make, model, year):
+        ''' initialize all attributes '''
         super().__init__(make, model, year)
+        self.battery_size = 70
+
+    
+    def describe_battery(self):
+        ''' a method to describe the size of the battery '''
+        print(f'The car has a battery of {self.battery_size} KWh.')
 
 
 if __name__ == '__main__':
     my_electric_car = ElectricCar('audi', 'a4', 2020)
     print(my_electric_car.get_descriptive_name())
+    my_electric_car.describe_battery()
