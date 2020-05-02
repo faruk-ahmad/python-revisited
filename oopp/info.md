@@ -1,0 +1,1 @@
+I followed https://github.com/ehmatthes/pcc  for OOP concepts and some other open source resources.
