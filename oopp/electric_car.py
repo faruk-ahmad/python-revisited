@@ -7,6 +7,7 @@ class Car():
         self.model = model
         self.year = year
         self.odometer_reading = 0
+        self.gass_remaining = 0
 
 
     def get_descriptive_name(self):
@@ -36,6 +37,14 @@ class Car():
             print('You can not decrease the odometer reading.')
 
 
+    def fill_gass_tank(self, gass_to_fill):
+        ''' a simple method to fill gass tank '''
+        if gass_to_fill > 0:
+            self.gass_remaining += gass_to_fill
+        else:
+            print(f'Invalid quantity.')
+
+
 class ElectricCar(Car):
     ''' Represents an electric car '''
 
@@ -49,8 +58,14 @@ class ElectricCar(Car):
         ''' a method to describe the size of the battery '''
         print(f'The car has a battery of {self.battery_size} KWh.')
 
+    
+    def fill_gass_tank(self, gass_to_fill):
+        ''' since electric car does not need gass, let override this method and ignore if called '''
+        print(f'Electric car does not require gass.')
+
 
 if __name__ == '__main__':
     my_electric_car = ElectricCar('audi', 'a4', 2020)
     print(my_electric_car.get_descriptive_name())
     my_electric_car.describe_battery()
+    my_electric_car.fill_gass_tank(10)
