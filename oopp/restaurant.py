@@ -42,6 +42,7 @@ class User():
         self.phone_number = phone_number
         self.email = email
         self.address = address
+        self.login_attempts = 0
 
 
     def describe_user(self):
@@ -49,6 +50,7 @@ class User():
         print(f'\nUser summary:')
         print(f'Name: {self.first_name} {self.last_name}')
         print(f'Phone number: {self.phone_number}')
+        print(f'Login attempts: {self.login_attempts}')
 
 
     def greet_user(self):
@@ -59,6 +61,14 @@ class User():
             print(f'Hello and welcome Ms. {self.first_name}')
         else:
             print(f'Hello and welcome {self.first_name}')
+
+
+    def increment_login_attempts(self):
+        self.login_attempts += 1
+
+    
+    def reset_login_attempts(self):
+        self.login_attempts = 0
 
 
 
@@ -107,3 +117,12 @@ if __name__ == '__main__':
     restaurant.increment_number_served(50)
     restaurant.set_number_served(60)
     restaurant.increment_number_served(-5)
+
+
+    #test login  attempts attribute
+    user = User('faruk', 'ahmad', 'male', '03747474', 'faruk@gmail.com', 'katsushika')
+    user.describe_user()
+    user.increment_login_attempts()
+    user.describe_user()
+    user.reset_login_attempts()
+    user.describe_user()
