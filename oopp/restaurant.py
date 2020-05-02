@@ -4,6 +4,7 @@ class Restaurant():
         ''' init method to initialize attributes '''
         self.restaurant_name = restaurant_name
         self.cuisine_type = cuisine_type
+        self.num_served = 0
 
     def describe_restaurant(self):
         ''' a method to describe the restaurant '''
@@ -13,6 +14,22 @@ class Restaurant():
     def open_restaurant(self):
         ''' a method to show restaurant open or close status '''
         print(f'{self.restaurant_name} is open now.')
+
+
+    def set_number_served(self, new_num_served):
+        ''' a method to reset the num_served attribute with new value '''
+        if new_num_served >= self.num_served:
+            self.num_served = new_num_served
+        else:
+            print('You can not decrease the number of served customer.')
+
+    
+    def increment_number_served(self, num_of_increment):
+        ''' a method to make increment to the number of served customer '''
+        if num_of_increment > 0:
+            self.num_served += num_of_increment
+        else:
+            print('You can not decrease the number of customer served.')
 
 
 class User():
@@ -81,3 +98,12 @@ if __name__ == '__main__':
     print('\nUser-3')
     user3.describe_user()
     user3.greet_user()
+
+    #test number of served in restaurant class
+    restaurant = Restaurant('Caffe Picaso', 'abcd')
+    restaurant.describe_restaurant()
+    print(restaurant.num_served)
+    restaurant.set_number_served(300)
+    restaurant.increment_number_served(50)
+    restaurant.set_number_served(60)
+    restaurant.increment_number_served(-5)
