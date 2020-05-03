@@ -22,3 +22,16 @@ class TestAnnynymousSurvey(unittest.TestCase):
         survey.store_responses("English")
 
         self.assertIn("English", survey.responses, "Single response not stored successfully")
+
+
+    def test_three_responses_stored(self):
+        """ A method to test when three responses are stored """
+        question = "What is your favorite language?"
+        responses = ["Bangla", "English", "Japanese"]
+
+        survey = AnnonymousSurvey(question)
+        for response in responses:
+            survey.store_responses(response)
+
+        for response in responses:
+            self.assertIn(response, survey.responses, "Three responses are not stored successfully.")
