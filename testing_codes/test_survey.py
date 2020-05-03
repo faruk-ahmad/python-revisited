@@ -9,7 +9,10 @@ class TestAnnynymousSurvey(unittest.TestCase):
 
     def setUp(self):
         """ Code that runs before each test """
-        pass
+        self.question = "What is your favorite language?"
+        self.my_survey = AnnonymousSurvey(self.question)
+        self.responses = ["Bangla", "English", "Japanese"]
+
 
     def tearDown(self):
         """ Code that runs after each test """
@@ -17,21 +20,15 @@ class TestAnnynymousSurvey(unittest.TestCase):
 
     def test_single_response_stored(self):
         """ A method to test when a single response is stored """
-        question = "What is your favorite language?"
-        survey = AnnonymousSurvey(question)
-        survey.store_responses("English")
+        self.my_survey.store_responses(self.responses[0])
 
-        self.assertIn("English", survey.responses, "Single response not stored successfully")
+        self.assertIn(self.responses[0], self.my_survey.responses, "Single response not stored successfully")
 
 
     def test_three_responses_stored(self):
         """ A method to test when three responses are stored """
-        question = "What is your favorite language?"
-        responses = ["Bangla", "English", "Japanese"]
+        for response in self.responses:
+            self.my_survey.store_responses(response)
 
-        survey = AnnonymousSurvey(question)
-        for response in responses:
-            survey.store_responses(response)
-
-        for response in responses:
-            self.assertIn(response, survey.responses, "Three responses are not stored successfully.")
+        for response in self.responses:
+            self.assertIn(response, self.my_survey.responses, "Three responses are not stored successfully.")
