@@ -55,7 +55,7 @@ and methos in the similar way as done previously.
 class Battery():
     ''' a class represents the battery attributes and methods of Electric car '''
 
-    def __init__(self, battery_size = 70):
+    def __init__(self, battery_size=70):
         ''' initialize attributes '''
         self.battery_size = battery_size
 
