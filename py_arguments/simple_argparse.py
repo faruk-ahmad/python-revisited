@@ -7,7 +7,7 @@ import argparse
 
 
 # create the parser
-my_parser = argparse.ArgumentParser(description="list content of a directory.")
+my_parser = argparse.ArgumentParser(prog="Simple Argument Parser", description="list content of a directory.")
 
 
 # add argument to the parser
